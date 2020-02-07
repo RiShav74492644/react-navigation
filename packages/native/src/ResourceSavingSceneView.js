@@ -1,6 +1,6 @@
 import React from 'react';
 import { Platform, StyleSheet, View } from 'react-native';
-import { SceneView } from '@react-navigation/core';
+import { SceneView } from 'react-navigation';
 
 const FAR_FAR_AWAY = 3000; // this should be big enough to move the whole view out of its container
 
@@ -20,6 +20,10 @@ class ResourceSavingSceneView extends React.PureComponent {
       awake: props.lazy ? props.isFocused : true,
     };
   }
+
+  _mustAlwaysBeVisible = () => {
+    return this.props.animationEnabled || this.props.swipeEnabled;
+  };
 
   render() {
     const { awake } = this.state;
@@ -52,10 +56,6 @@ class ResourceSavingSceneView extends React.PureComponent {
       </View>
     );
   }
-
-  _mustAlwaysBeVisible = () => {
-    return this.props.animationEnabled || this.props.swipeEnabled;
-  };
 }
 
 const styles = StyleSheet.create({

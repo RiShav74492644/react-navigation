@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { StatusBar, Text, TextInput } from 'react-native';
-import { ThemeContext, ThemeColors } from '@react-navigation/core';
+import { ThemeContext, ThemeColors } from 'react-navigation';
 
 class ThemedText extends React.Component {
   static contextType = ThemeContext;
